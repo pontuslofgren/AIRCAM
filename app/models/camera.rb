@@ -5,4 +5,6 @@ class Camera < ApplicationRecord
   has_many :bookings
 
   has_many_attached :photos
+
+  validates :title, :description, :brand, :price, :location, presence: true
 end
