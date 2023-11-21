@@ -1,0 +1,14 @@
+<h2><%= @camera.title %></h2>
+
+<ul>
+<li><%= @camera.description %></li>
+<li><%= @camera.brand %></li>
+<li><%= @camera.location %></li>
+<li><%= @camera.price %></li>
+</ul>
+
+<% @camera.photos.each do |camera| %>
+
+  <%= cl_image_tag camera.key, height: 300, width: 400, crop: :fill %>
+
+<% end %>

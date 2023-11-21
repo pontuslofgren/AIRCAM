@@ -5,6 +5,13 @@ ruby "3.1.2"
 # Devise for authentification
 gem "devise"
 
+# Added to store credentials for cloudinary
+gem "dotenv-rails"
+
+# Cloudinary used to upload images
+gem "cloudinary"
+
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"
 

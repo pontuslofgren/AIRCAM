@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :cameras
   has_many :bookings
   has_many :reviews
+
+  has_one_attached :photo
 end
