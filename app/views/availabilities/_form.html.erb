@@ -1,0 +1,8 @@
+<!-- app/views/restaurants/_form.html.erb -->
+<%= simple_form_for(@availability) do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit %>
+  <% # Button to go to camera#show when finished with adding dates %>
+  <%= link_to 'Finished', camera_path(params[:id]), class:'btn button-outline-primary' %>
+<% end %>
