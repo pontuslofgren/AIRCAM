@@ -1,5 +1,7 @@
 # Categories
 
+puts "Deleting all existing categories"
+ActiveRecord::Base.connection.execute('DELETE FROM categories')
 puts "Creating categories"
 
 categories = ['Adventure', 'Video', 'DSLR', 'Vintage film']
@@ -76,7 +78,6 @@ puts "Done ✅"
 
 puts "Clearing all joins cameras <> categories"
 ActiveRecord::Base.connection.execute('DELETE FROM cameras_categories')
-
 puts "Adding categories to cameras"
 
 Camera.all.each do |camera|
@@ -85,3 +86,5 @@ Camera.all.each do |camera|
   camera.categories << categories_to_add[1]
   puts "Added #{categories_to_add[0]} and #{categories_to_add[1]} to camera with id: #{camera.id}"
 end
+
+puts "Done with adding categories to cameras"
