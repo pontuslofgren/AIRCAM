@@ -37,6 +37,9 @@ addresses_in_lisbon = [
 puts "Starting seed"
 puts "Remember to at least have one registered user before seeding"
 
+puts "Destroying all camera records"
+Camera.destroy_all
+
 20.times do |i|
   camera = Camera.new
   camera.title = titles.sample
