@@ -3,4 +3,6 @@ class Camera < ApplicationRecord
   has_many :categories
   has_many :availabilities
   has_many :bookings
+
+  has_many_attached :photos
 end
