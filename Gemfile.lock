@@ -148,7 +148,7 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.9.0)
+    irb (1.9.1)
       rdoc
       reline (>= 0.3.8)
     jbuilder (2.11.5)
@@ -185,10 +185,6 @@ GEM
     nokogiri (1.15.5-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.15.5-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.15.5-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.4)
@@ -304,6 +300,7 @@ PLATFORMS
   aarch64-linux
   arm64-darwin-22
   x86_64-darwin-23
+  arm64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
