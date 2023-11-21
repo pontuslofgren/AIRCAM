@@ -1,0 +1,10 @@
+<!-- app/views/restaurants/_form.html.erb -->
+<%= simple_form_for(@camera) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :brand %>
+  <%= f.input :location %>
+  <%= f.input :price %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit %>
+<% end %>
