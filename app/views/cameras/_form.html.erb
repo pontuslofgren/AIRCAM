@@ -5,7 +5,7 @@
   <%= f.input :brand %>
   <%= f.input :location %>
   <%= f.input :price %>
-  <%= f.association :category %>
+  <%= f.association :categories, as: :check_boxes %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit %>
 <% end %>
