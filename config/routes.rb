@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       # Availability must have camera_id as a param
       # Availability only has new, create and destroy
       resources :availabilities, only: [:new, :create, :destroy]
+      resources :bookings, only: [:new, :create]
     end
   end
 end
