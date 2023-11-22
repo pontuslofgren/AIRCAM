@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.camera_id = params[:id]
     @booking.renter_id = current_user.id
     if @booking.save
-      redirect_to user_bookings_path(current_user.id)
+      redirect_to my_bookings_path
     else
       render :new, status: :unprocessable_entity
     end

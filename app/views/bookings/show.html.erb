@@ -1,13 +1,17 @@
-<h2>Here's your booking, <%= current_user.first_name %></h2>
+<div class="container my-3">
+  <h2>Here's your booking, <%= current_user.first_name %></h2>
 
-<ul>
-<li>Title: <%= @booking.camera.title  %></li>
-<li>Brand: <%= @booking.camera.description  %></li>
-<li>Brand: <%= @booking.camera.brand  %></li>
-<li>Price per day: <%= @booking.camera.price  %></li>
-<li>Price total: [TODO]</li>
-<li>Camera owner id: <%= @booking.camera.owner_id  %></li>
-<li>Camera owner name: <%= @booking.camera.owner.first_name  %></li>
-</ul>
+  <ul>
+  <li>Title: <%= @booking.camera.title  %></li>
+  <li>Start date: <%= @booking.start_date  %></li>
+  <li>End date: <%= @booking.end_date  %></li>
+  <li>Brand: <%= @booking.camera.description  %></li>
+  <li>Brand: <%= @booking.camera.brand  %></li>
+  <li>Price per day: <%= @booking.camera.price  %></li>
+  <li>Price total: [TODO]</li>
+  <li>Camera owner id: <%= @booking.camera.owner_id  %></li>
+  <li>Camera owner name: <%= @booking.camera.owner.first_name  %></li>
+  </ul>
 
-<%= link_to 'Back to bookings', bookings_path, class:"btn btn-outline-primary" %>
+  <%= link_to 'Back to bookings', my_bookings_path, class:"btn btn-outline-primary" %>
+</div>
