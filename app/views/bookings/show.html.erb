@@ -2,6 +2,8 @@
 
 <ul>
 <li>Title: <%= @booking.camera.title  %></li>
+<li>Start date: <%= @booking.start_date  %></li>
+<li>End date: <%= @booking.end_date  %></li>
 <li>Brand: <%= @booking.camera.description  %></li>
 <li>Brand: <%= @booking.camera.brand  %></li>
 <li>Price per day: <%= @booking.camera.price  %></li>
@@ -10,4 +12,4 @@
 <li>Camera owner name: <%= @booking.camera.owner.first_name  %></li>
 </ul>
 
-<%= link_to 'Back to bookings', bookings_path, class:"btn btn-outline-primary" %>
+<%= link_to 'Back to bookings', my_bookings_path, class:"btn btn-outline-primary" %>

@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bookings, only: [:index, :show]
+  resources :bookings, only: [:index, :show], as: 'my_bookings'
 end
