@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_21_125008) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_21_160327) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,12 +76,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_125008) do
     t.index ["owner_id"], name: "index_cameras_on_owner_id"
   end
 
+  create_table "cameras_categories", id: false, force: :cascade do |t|
+    t.bigint "camera_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["camera_id", "category_id"], name: "index_cameras_categories_on_camera_id_and_category_id"
+    t.index ["category_id", "camera_id"], name: "index_cameras_categories_on_category_id_and_camera_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "title"
-    t.bigint "camera_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["camera_id"], name: "index_categories_on_camera_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -116,7 +121,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_125008) do
   add_foreign_key "bookings", "cameras"
   add_foreign_key "bookings", "users", column: "renter_id"
   add_foreign_key "cameras", "users", column: "owner_id"
-  add_foreign_key "categories", "cameras"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users"
 end

@@ -2,8 +2,10 @@
   <div class="container-fluid">
     <!-- Logo and Brand Name -->
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= content_tag :i, "", class: "fa-solid fa-camera", id: 'logofontawesome' %>
-    <% end %>
+    <button type="button" class="btn btn-link p-0" onclick="location.href='/';">
+    <%= content_tag :i, "", class: "fa-solid fa-camera", id: 'logofontawesome' %>
+    </button>
+<% end %>
 
     <!-- Toggle Button for Mobile View -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,10 +14,11 @@
 
     <!-- Navbar Links -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav ml-auto align-items-left">
       <ul class="navbar-nav me-auto">
         <li class="nav-item"><a class="nav-link" href="/cameras">Cameras</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about_us">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="/bookings">Bookings</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
 
         <!-- User Authentication and Avatar Button -->
         <% if user_signed_in? %>
@@ -38,9 +41,9 @@
       </ul>
 
       <!-- Search Form -->
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form id="searchForm" class="d-flex" onSubmit="return handleSearch(event)">
+      <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </div>

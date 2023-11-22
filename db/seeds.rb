@@ -1,3 +1,22 @@
+# Categories
+
+puts "Deleting all existing categories"
+ActiveRecord::Base.connection.execute('DELETE FROM categories')
+puts "Creating categories"
+
+categories = ['Adventure', 'Video', 'DSLR', 'Vintage film']
+
+categories.each do |category|
+  new_category = Category.new(title: category)
+  if new_category.save
+    puts "#{category} saved as a category"
+  else
+    puts "Failed to add #{category} as a category"
+  end
+end
+
+puts "Done creating categories ✅"
+
 # CAMERAS
 
 brands = ['Nikon', 'Sony', 'GoPro', 'Canon', 'Hasselblad', 'FujiFilm']
@@ -56,3 +75,16 @@ Camera.destroy_all
 end
 
 puts "Done ✅"
+
+puts "Clearing all joins cameras <> categories"
+ActiveRecord::Base.connection.execute('DELETE FROM cameras_categories')
+puts "Adding categories to cameras"
+
+Camera.all.each do |camera|
+  categories_to_add = Category.all.sample(2)
+  camera.categories << categories_to_add[0]
+  camera.categories << categories_to_add[1]
+  puts "Added #{categories_to_add[0]} and #{categories_to_add[1]} to camera with id: #{camera.id}"
+end
+
+puts "Done with adding categories to cameras"

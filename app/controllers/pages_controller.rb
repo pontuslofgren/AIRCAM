@@ -4,4 +4,7 @@ class PagesController < ApplicationController
   def home
     @cameras = Camera.all.sample(6)
   end
+
+  def about
+  end
 end
