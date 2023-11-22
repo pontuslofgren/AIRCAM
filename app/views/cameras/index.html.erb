@@ -1,25 +1,28 @@
 
 
 
-<!--Cameras CARDs Index-->
-<div class="row row-cols-1 row-cols-md-3 g-5 mt-2 ">
-<% @cameras.each do |camera| %>
-<div class="col">
-    <div class="card border-2">
-      <img src="https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title"><strong><%= camera.title %></strong></h5>
-        <h6 class="card-subtitle mt-2 fst-italic text-decoration-underline"><%= camera.brand %></h6>
-        <p class="card-text mt-2 "><%= camera.description.truncate_words(30) %></p>
-        <h6 class="card-subtitle mt-1 mb-2"><%= camera.location %></h6>
-        <small style="color: red; font-weight: bold;"><%= number_to_currency(camera.price, unit: "€") %></small>
-        <hr>
-        <button type="button" class="btn btn-secondary">Book ✈︎</button>
+<div class="container">
+  <!--Cameras CARDs Index-->
+  <div class="row row-cols-1 row-cols-md-3 g-5 mt-2 ">
+  <% @cameras.each do |camera| %>
+  <div class="col">
+      <div class="card border-2">
+        <%# <img src="https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top"> %>
+        <%= cl_image_tag camera.photos.first.key, height: 300, crop: :fill, class:"card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><strong><%= camera.title %></strong></h5>
+          <h6 class="card-subtitle mt-2 fst-italic text-decoration-underline"><%= camera.brand %></h6>
+          <p class="card-text mt-2 "><%= camera.description.truncate_words(30) %></p>
+          <h6 class="card-subtitle mt-1 mb-2"><%= camera.location %></h6>
+          <small style="color: red; font-weight: bold;"><%= number_to_currency(camera.price, unit: "€") %></small>
+          <hr>
+          <%= link_to 'View camera ✈︎', camera_path(camera), class:"btn btn-secondary" %>
+        </div>
       </div>
     </div>
+  <% end %>
   </div>
-<% end %>
-</div>
-<div class="mt-5">
-<%= will_paginate @objects, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  <div class="mt-5">
+  <%= will_paginate @objects, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  </div>
 </div>
