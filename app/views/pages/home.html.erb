@@ -1,2 +1,41 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!--Home PAGE-->
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">AirCam</h1>
+        <p class="lead text-body-secondary">Looking for a unique way to capture your next vacation? With AirCam, you can browse a wide selection of cameras available for rent in your area, and rent them for as long as you need.
+</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">See all</a>
+          <a href="#" class="btn btn-secondary my-2">How it Works</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+<!-- CAMERA CARDS -->
+
+
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <% @cameras.each do |camera| %>
+       <div class="col">
+        <div class="card shadow-sm">
+          <div style="height: 220px; background-size: cover; background-image: url('https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&w=1600')"></div>
+          <div class="card-body">
+            <h4 class="card-title"> <%= camera.title %> </h4>
+            <p class="card-text"><%= camera.description %></p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+                <small class="text-body-secondary"><%= number_to_currency(camera.price, unit: "€") %></small>
+              </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

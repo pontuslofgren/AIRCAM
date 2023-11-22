@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-
+  get "about", to: "pages#about"
   resources :cameras do
     member do
       # Availability must have camera_id as a param
