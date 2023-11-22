@@ -12,3 +12,12 @@
   <%= cl_image_tag camera.key, height: 300, width: 400, crop: :fill %>
 
 <% end %>
+
+<h4>This camera is available:</h4>
+<ul>
+<% @camera.availabilities.each do |interval| %>
+
+  <li><%= interval.start_date %> to <%= interval.end_date %></li>
+
+<% end %>
+</ul>
