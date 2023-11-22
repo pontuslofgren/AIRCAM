@@ -28,7 +28,7 @@
             <p class="card-text"><%= camera.description.truncate_words(60) %></p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <%= link_to 'View', camera_path(camera), class: 'btn btn-sm btn-outline-secondary' %>
                 </div>
                 <small style="color: red; font-weight: bold;"><%= number_to_currency(camera.price, unit: "€") %></small>
               </div>
