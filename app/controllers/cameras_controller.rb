@@ -1,7 +1,7 @@
 class CamerasController < ApplicationController
 
   def index
-    @cameras = Camera.all
+    @cameras = Camera.paginate(page: params[:page], per_page: 6)
   end
 
   def new
