@@ -1,0 +1,9 @@
+<h2>Hello <%= current_user.first_name %>, here are your bookings</h2>
+
+<% @bookings.each do |booking| %>
+
+  <h3><%= booking.camera.title %></h3>
+  <p><%= booking.start_date %> to <%= booking.end_date %></p>
+  <%= link_to 'View details', booking_path(booking) %>
+
+<% end %>
