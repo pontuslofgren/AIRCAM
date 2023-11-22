@@ -1,9 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <!-- Logo and Brand Name -->
-    <%= link_to "root_path", class: "navbar-brand" do %>
-      <%= content_tag :i, "", class: "fa-solid fa-camera", id: 'logofontawesome' %>
-    <% end %>
+    <%= link_to "#", class: "navbar-brand" do %>
+    <button type="button" class="btn btn-link p-0" onclick="location.href='/';">
+    <%= content_tag :i, "", class: "fa-solid fa-camera", id: 'logofontawesome' %>
+    </button>
+<% end %>
 
     <!-- Toggle Button for Mobile View -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,9 +41,9 @@
       </ul>
 
       <!-- Search Form -->
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form id="searchForm" class="d-flex" onSubmit="return handleSearch(event)">
+      <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </div>
