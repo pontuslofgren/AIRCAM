@@ -1,19 +1,21 @@
-<div class="card shadow-sm border-2">
-  <% @cameras.each do |camera| %>
-    <% if camera.photos.any? %>
-      <%= cl_image_tag camera.photos.first.key, height: 300, crop: :fill, class:"card-img-top" %>
-    <% else %>
-      <img src="https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?auto=compress&cs=tinysrgb&w=1600" height="300" class="card-img-top">
-    <% end %>
-    <div class="card-body">
-      <h4 class="card-title"> <%= camera.title %> </h4>
-      <p class="card-text"><%= camera.description.truncate_words(60) %></p>
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-          <%= link_to 'View', camera_path(camera), class: 'btn btn-sm btn-outline-secondary' %>
+<% items.each do |item| %>
+  <div class="col">
+      <div class="card shadow border-0 rounded-4">
+        <% if item.photos.any? %>
+          <%= cl_image_tag item.photos.first.key, height: 300, crop: :fill, class:"card-img-top rounded-3" %>
+        <% else %>
+           <img src="https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?auto=compress&cs=tinysrgb&w=1600" height="300" class="card-img-top rounded-3">
+        <% end %>
+          <div class="card-body">
+          <h5 class="card-title"><strong><%= item.title %></strong></h5>
+          <h6 class="card-subtitle mt-2 fst-italic text-decoration-underline"><%= item.brand %></h6>
+          <p class="card-text mt-2 "><%= item.description.truncate_words(30) %></p>
+          <h6 class="card-subtitle mt-1 mb-2"><%= item.location %></h6>
+          <small style="color: red; font-weight: bold;"><%= number_to_currency(item.price, unit: "€") %></small>
+          <hr>
+          <%= link_to 'View camera ✈', polymorphic_path(item), class:"btn btn-secondary" %>
         </div>
-        <small style="color: red; font-weight: bold;"><%= number_to_currency(camera.price, unit: "€") %></small>
       </div>
     </div>
   <% end %>
-</div>
+  </div>

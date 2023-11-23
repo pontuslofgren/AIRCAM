@@ -14,14 +14,10 @@
   </section>
 
 <!-- CAMERA CARDS -->
-
-
 <div class="album py-5 bg-body-tertiary">
-  <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <% @cameras.each do |camera| %>
-          <%= render 'shared/cards'%>
-        <% end %>
+  <div class="container ">
+    <div class="justify-content-between d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 ">
+          <%= render 'shared/cards', items: @cameras %>
     </div>
   </div>
 </div>
