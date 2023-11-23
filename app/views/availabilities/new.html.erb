@@ -2,6 +2,8 @@
 
 <h3>Current blocked dates</h3>
 
+<%= @blocked_dates.to_json %>
+
 <ul>
   <% @availabilities.each do |availability| %>
     <li><%= availability.start_date %> to <%= availability.end_date %></li>

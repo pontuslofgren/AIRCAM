@@ -1,8 +1,10 @@
-<!-- app/views/restaurants/_form.html.erb -->
 <%= simple_form_for(@availability) do |f| %>
   <%= f.input :start_date,
     as: :string,
-    input_html: { data: { controller: "datepicker" } } %>
+    input_html: {
+      data: { controller: "datepicker", "datepicker-dates-value": @blocked_dates.to_json }
+      # data: { dates: ["some", "data"] }
+      } %>
   <%= f.input :end_date %>
   <%= f.submit 'Block dates', class:"btn btn-primary" %>
   <% # Button to go to camera#show when finished with adding dates %>

@@ -4,9 +4,6 @@ class CamerasController < ApplicationController
     @cameras = Camera.paginate(page: params[:page], per_page: 6)
   end
 
-  def my_cameras
-  end
-
   def new
     @camera = Camera.new
   end

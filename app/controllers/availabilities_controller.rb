@@ -2,6 +2,7 @@ class AvailabilitiesController < ApplicationController
   def new
     @availability = Availability.new
     @availabilities = Availability.where(camera_id: params[:id])
+    @blocked_dates = Camera.find(params[:id]).blocked_dates
   end
 
   def create
