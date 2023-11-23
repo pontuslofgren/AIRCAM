@@ -35,7 +35,12 @@ class CamerasController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
 
+  def destroy
+    @camera = Camera.find(params[:id])
+    @camera.destroy
+    redirect_to profile_path(current_user)
   end
 
   private
