@@ -16,22 +16,22 @@ class Camera < ApplicationRecord
   # joins the arrays. We now have an array of hashes that can be used by flatpickr
   # https://flatpickr.js.org/examples/#disabling-dates
 
-  # def blocked_dates
-  #   arr1 = bookings.map do |booking|
-  #     {
-  #       from: booking.from_date,
-  #       to: booking.to_date
-  #     }
-  #   end
+  def blocked_dates
+    book_dates = bookings.map do |booking|
+      {
+        from: booking.from_date,
+        to: booking.to_date
+      }
+    end
 
-  #   arr2 = availabilities.map do |av|
-  #     {
-  #       from: av.from_date,
-  #       to: av.to_date
-  #     }
+    unavailable_dates = availabilities.map do |block|
+      {
+        from: block.from_date,
+        to: block.to_date
+      }
 
-  #     arr1 + arr2
-  #   end
-  # end
+      book_dates + unavailable_dates
+    end
+  end
 
 end
