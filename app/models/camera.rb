@@ -1,4 +1,6 @@
 class Camera < ApplicationRecord
+  include PgSearch::Model
+
   belongs_to :owner, class_name: 'User'
   has_and_belongs_to_many :categories, through: :cameras_categories
   has_many :availabilities
@@ -7,4 +9,10 @@ class Camera < ApplicationRecord
   has_many_attached :photos
 
   validates :title, :description, :brand, :price, :location, presence: true
+
+  pg_search_scope :search_full_text, against: {
+    location: 'A',
+    title: 'B',
+    description: 'C'
+  }
 end
