@@ -1,6 +1,7 @@
 class AvailabilitiesController < ApplicationController
   def new
     @availability = Availability.new
+    @availabilities = Availability.where(camera_id: params[:id])
   end
 
   def create

@@ -1,3 +1,13 @@
-<h2>Between what dates are your cameras available?</h2>
+<h2>Between what dates are your cameras unavailable?</h2>
+
+<h3>Current blocked dates</h3>
+
+<ul>
+  <% @availabilities.each do |availability| %>
+    <li><%= availability.start_date %> to <%= availability.end_date %></li>
+  <% end %>
+</ul>
+
+
 
 <%= render 'form' %>
