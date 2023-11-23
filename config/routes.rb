@@ -21,3 +21,5 @@ Rails.application.routes.draw do
   # Add a route for the profile page
   get '/profile', to: 'profiles#show', as: 'user_profile'
 end
+
+resources :searches, only: [:new]

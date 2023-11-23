@@ -20,7 +20,7 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <% @cameras.each do |camera| %>
-       <div class="col">
+        <div class="col">
         <div class="card shadow-sm border-2">
           <!-- <div style="height: 220px; background-size: cover; background-image: url('https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&w=1600')"></div> -->
           <%= cl_image_tag camera.photos.first.key, height: 300, crop: :fill, class:"card-img-top" %>
