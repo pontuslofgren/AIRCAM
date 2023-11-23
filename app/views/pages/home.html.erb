@@ -13,4 +13,36 @@
   </section>
 
 <!-- CAMERA CARDS -->
+<<<<<<< HEAD
 <%= render 'shared/cards', items: @cameras %>
+=======
+
+
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <% @cameras.each do |camera| %>
+          <%= render 'shared/cards'%>
+        <% end %>
+      <% @cameras.each do |camera| %>
+        <div class="col">
+        <div class="card shadow-sm border-2">
+          <!-- <div style="height: 220px; background-size: cover; background-image: url('https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&w=1600')"></div> -->
+          <%= cl_image_tag camera.photos.first.key, height: 300, crop: :fill, class:"card-img-top" %>
+          <div class="card-body">
+            <h4 class="card-title"> <%= camera.title %> </h4>
+            <p class="card-text"><%= camera.description.truncate_words(60) %></p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <%= link_to 'View', camera_path(camera), class: 'btn btn-sm btn-outline-secondary' %>
+                </div>
+                <small style="color: red; font-weight: bold;"><%= number_to_currency(camera.price, unit: "€") %></small>
+              </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+>>>>>>> 55af56c1e7ebbef6416c6bd0949e55a7251da6de

@@ -12,5 +12,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :searches, only: [:new]
   resources :bookings, only: [:index, :show], as: 'my_bookings'
+end
+
+Rails.application.routes.draw do
+  # ... other routes ...
+
+  # Add a route for the profile page
+  get '/profile', to: 'profiles#show', as: 'user_profile'
 end
