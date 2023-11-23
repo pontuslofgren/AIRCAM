@@ -6,18 +6,11 @@
         <p class="lead text-body-secondary" style="color: white !important;">Looking for a unique way to capture your next vacation? With AirCam, you can browse a wide selection of cameras available for rent in your area, and rent them for as long as you need.
 </p>
         <p>
-          <%= link_to 'See all', cameras_path, class: 'btn btn-primary my-2' %>
-          <a href="#" class="btn btn-secondary my-2">How it Works</a>
+          <%= link_to 'See all', cameras_path, class: 'btn btn-primary my-5 rounded' %>
         </p>
       </div>
     </div>
   </section>
 
 <!-- CAMERA CARDS -->
-<div class="album py-5 bg-body-tertiary">
-  <div class="container ">
-    <div class="justify-content-between d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 ">
-          <%= render 'shared/cards', items: @cameras %>
-    </div>
-  </div>
-</div>
+<%= render 'shared/cards', items: @cameras %>
