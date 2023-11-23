@@ -3,10 +3,7 @@
     as: :string,
     input_html: {
       data: { controller: "datepicker", "datepicker-dates-value": @blocked_dates.to_json }
-      # data: { dates: ["some", "data"] }
       } %>
-  <%= f.input :end_date %>
   <%= f.submit 'Block dates', class:"btn btn-primary" %>
-  <% # Button to go to camera#show when finished with adding dates %>
   <%= link_to 'Finished', camera_path(params[:id]), class:'btn btn-outline-primary' %>
 <% end %>
