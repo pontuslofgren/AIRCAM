@@ -1,6 +1,7 @@
 
 
-<%= form_with url: cameras_path, method: :get, class: "d-flex" do %>
+  <div class="container">
+    <%= form_with url: cameras_path, method: :get, class: "d-flex my-5" do %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control",
@@ -8,6 +9,7 @@
         %>
       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
     <% end %>
+  </div>
 
 <%= render 'shared/cards', items: @cameras %>
 <div class="mt-5">
