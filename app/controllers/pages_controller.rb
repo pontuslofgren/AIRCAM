@@ -7,4 +7,8 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def show
+    @camera = Camera.find(params[:id])
+  end
 end

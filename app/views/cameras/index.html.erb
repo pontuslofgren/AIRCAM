@@ -8,8 +8,12 @@
   <div class="col">
       <div class="card border-2">
         <%# <img src="https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top"> %>
-        <%= cl_image_tag camera.photos.first.key, height: 300, crop: :fill, class:"card-img-top" %>
-        <div class="card-body">
+        <% if camera.photos.any? %>
+          <%= cl_image_tag camera.photos.first.key, height: 300, crop: :fill, class:"card-img-top" %>
+        <% else %>
+           <img src="https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?auto=compress&cs=tinysrgb&w=1600" height="300" class="card-img-top">
+        <% end %>
+          <div class="card-body">
           <h5 class="card-title"><strong><%= camera.title %></strong></h5>
           <h6 class="card-subtitle mt-2 fst-italic text-decoration-underline"><%= camera.brand %></h6>
           <p class="card-text mt-2 "><%= camera.description.truncate_words(30) %></p>

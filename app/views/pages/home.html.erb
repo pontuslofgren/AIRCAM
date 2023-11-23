@@ -19,6 +19,9 @@
 <div class="album py-5 bg-body-tertiary">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <% @cameras.each do |camera| %>
+          <%= render 'shared/cards'%>
+        <% end %>
       <% @cameras.each do |camera| %>
         <div class="col">
         <div class="card shadow-sm border-2">
