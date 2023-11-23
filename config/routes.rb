@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "about", to: "pages#about"
 
   resources :cameras do
+    
     member do
       # Availability must have camera_id as a param
       # Availability only has new, create and destroy
