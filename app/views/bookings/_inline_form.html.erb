@@ -1,0 +1,9 @@
+<%= simple_form_for(@bookings) do |f| %>
+  <%= f.input :start_date,
+    as: :string,
+    input_html: {
+      data: { controller: "datepicker", "datepicker-dates-value": @blocked_dates.to_json }
+      } %>
+  <%= f.submit 'Block dates', class:"btn btn-primary" %>
+  <%= link_to 'Finished', camera_path(params[:id]), class:'btn btn-outline-primary' %>
+<% end %>

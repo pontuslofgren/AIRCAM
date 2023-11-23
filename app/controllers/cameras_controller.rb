@@ -20,6 +20,22 @@ class CamerasController < ApplicationController
 
   def show
     @camera = Camera.find(params[:id])
+    @booking = Booking.new()
+    @blocked_dates = @camera.blocked_dates
+  end
+
+  def edit
+    @camera = Camera.find(params[:id])
+  end
+
+  def update
+    @camera = Camera.find(params[:id])
+    if @camera.update(camera_params)
+      redirect_to camera_path(@camera)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+
   end
 
   private
