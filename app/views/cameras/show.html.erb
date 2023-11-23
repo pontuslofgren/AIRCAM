@@ -1,23 +1,66 @@
-<h2><%= @camera.title %></h2>
+<!--Carousel Slides-->
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div id="carouselExampleIndicators" class="carousel slide shadow rounded" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
 
-<ul>
-<li><%= @camera.description %></li>
-<li><%= @camera.brand %></li>
-<li><%= @camera.location %></li>
-<li><%= @camera.price %></li>
-</ul>
+        <div class="carousel-inner" style="height: 350px">
+        <% @camera.photos.each do |camera| %>
+          <div class="carousel-item active h-100"  style="background: url('<%= cl_image_path camera.key, crop: :fill %>'); background-size: cover; background-position: center;">
+            <%#= cl_image_tag camera.key, class: 'd-block w-100', crop: :fill %>
+          </div>
+        <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<% @camera.photos.each do |camera| %>
+<!-- Description and Form -->
+<section id="description_and_booking_form">
+  <div class="container mt-5 rounded">
+    <div class="row">
+      <!-- Description -->
+      <div class="col-md-6 mb-3">
+        <div class="card bg-light border-primary p-3">
+          <div class="card-body">
+            <h2 class="card-title"><%= @camera.title %></h2>
+        <h6 class="card-subtitle mt-2 fst-italic text-decoration-underline"><%= @camera.brand %></h6>
+        <p class="card-text mt-2 "><%= @camera.description.truncate_words(30) %></p>
+        <h6 class="card-subtitle mt-1 mb-2"><%= @camera.location %></h6>
+        <small style="color: red; font-weight: bold;"><%= number_to_currency(@camera.price, unit: "€") %></small>
+        <hr>
+        <%= link_to 'Book ✈︎', new_booking_path(@camera), class:"btn btn-secondary" %>
+          </div>
+        </div>
+      </div>
 
-  <%= cl_image_tag camera.key, height: 300, width: 400, crop: :fill %>
-
-<% end %>
-
-<h4>This camera is available:</h4>
-<ul>
-<% @camera.availabilities.each do |interval| %>
-
-  <li><%= interval.start_date %> to <%= interval.end_date %></li>
-
-<% end %>
-</ul>
+      <!-- Form -->
+      <div class="col-md-6">
+        <div class="card bg-secondary text-white border-dark p-3">
+          <div class="card-body">
+            <h4 class="card-title">To-do:</h4>
+            <ul class="card-text">
+              <% @camera.availabilities.each do |interval| %>
+                <li><%= interval.start_date %> to <%= interval.end_date %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

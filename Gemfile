@@ -2,6 +2,10 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
+# Gem to add the pagination feature
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap-style'
+
 # Devise for authentification
 gem "devise"
 
