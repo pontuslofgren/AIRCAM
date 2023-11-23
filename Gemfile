@@ -9,6 +9,9 @@ gem 'will_paginate-bootstrap-style'
 # Devise for authentification
 gem "devise"
 
+# For search
+gem "pg_search"
+
 # Added to store credentials for cloudinary
 gem "dotenv-rails"
 
