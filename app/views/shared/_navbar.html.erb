@@ -1,5 +1,6 @@
   <div class="container px-0 mt-3 sticky-top py-3">
-    <div class="navbar navbar-expand-sm bg-light bg-gradient border shadow-sm px-3 rounded-5 py-0">
+    <div style="backdrop-filter: blur(38px);">
+        <div class="navbar navbar-expand-sm shadow-sm px-3 rounded-5 border" style="height: 75px;">
     <!-- Logo and Brand Name -->
     <%= link_to "#", class: "navbar-brand" do %>
         <%= image_tag 'logo', style:"width: 100px" %>
@@ -24,9 +25,9 @@
           <li class="nav-item">
             <a href="#" class="nav-link" id="avatarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, height: 32, width: 32, crop: :fill, class: "rounded-circle border" %>
+                <%= cl_image_tag current_user.photo.key, height: 45, width: 45, crop: :fill, class: "rounded-circle border" %>
               <% else %>
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle", alt: "User Avatar", width: "32", height: "32" %>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle", alt: "User Avatar", width: "45", height: "45" %>
               <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="avatarDropdown">
@@ -44,4 +45,5 @@
 
     </div>
   </div>
+</div>
 </div>
