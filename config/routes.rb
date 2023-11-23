@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bookings, only: [:index, :show], as: 'my_bookings'
+  resources :bookings, only: [:index, :show, :destroy], as: 'my_bookings'
+
+  get "/bookings/:id/confirm", to: "bookings#confirm", as: "confirm_booking"
 end

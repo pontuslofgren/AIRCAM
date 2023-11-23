@@ -1,7 +1,45 @@
-<h4>Edit your camera listing</h4>
-<%= link_to 'Edit details', edit_camera_path(@camera), class:"btn btn-primary"  %>
-<%= link_to 'Edit blocked dates', new_availability_path(@camera), class:"btn btn-primary"  %>
-<%= link_to 'Delete camera',
-  camera_path(@camera),
-  class:"btn btn-danger text-white",
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+<div class="mb-3">
+  <h4>Edit your camera listing</h4>
+  <div class="d-grid gap-2">
+    <%= link_to 'Edit details', edit_camera_path(@camera), class:"btn btn-primary"  %>
+    <%= link_to 'Edit blocked dates', new_availability_path(@camera), class:"btn btn-primary"  %>
+    <%= link_to 'Delete camera',
+      camera_path(@camera),
+      class:"btn btn-danger text-white",
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+  </div>
+</div>
+
+<div class="mb-3">
+  <h5>Bookings</h5>
+
+  <% if @camera.bookings.any? %>
+    <% @camera.bookings.each do |booking| %>
+
+
+      <div class="border p-1 mb-3">
+          <div class="d-flex justify-content align-items-center">
+
+            <div class="col-md-8 p-2">
+              <p class="m-0"><i class="fa-solid fa-user me-2"></i><%= booking.renter.full_name %></p>
+              <p class="m-0 text-subtle"><i class="fa-solid fa-calendar-days me-2"></i><%= booking.start_date %> to <%= booking.end_date %>.</p>
+            </div>
+            <div class="col border-start p-2">
+              <% if booking.booked %>
+                <%= link_to 'Cancel',
+                my_booking_path(booking),
+                class:"btn btn-danger text-white",
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+              <% else %>
+                <%= link_to 'Confirm', confirm_booking_path(booking), class:"btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+
+      </div>
+   <% end %>
+
+   <% else %>
+    You don't have any bookings, yet...
+    <% end %>
+</div>

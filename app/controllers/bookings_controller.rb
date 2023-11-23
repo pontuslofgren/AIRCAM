@@ -25,6 +25,19 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(renter_id: current_user.id)
   end
 
+  def confirm
+    @booking = Booking.find(params[:id])
+    @booking.booked = true
+    @booking.save
+    redirect_to camera_path(@booking.camera)
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to camera_path(@booking.camera)
+  end
+
   private
 
   def booking_params
