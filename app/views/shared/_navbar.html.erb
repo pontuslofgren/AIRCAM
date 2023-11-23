@@ -1,49 +1,48 @@
   <div class="container px-0 mt-3 sticky-top py-3">
     <div style="backdrop-filter: blur(38px);">
-        <div class="navbar navbar-expand-sm shadow-sm px-3 rounded-5 border" style="height: 75px;">
-    <!-- Logo and Brand Name -->
-    <%= link_to "#", class: "navbar-brand" do %>
-        <%= image_tag 'logo', style:"width: 100px" %>
-    <% end %>
-
-    <!-- Toggle Button for Mobile View -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar Links -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a class="nav-link" href="/cameras"><i class="fa-solid fa-camera me-2"></i>Cameras</a></li>
-        <li class="nav-item"><a class="nav-link" href="/cameras/new"><i class="fa-solid fa-plus me-2"></i>Post camera</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about"><i class="fa-solid fa-circle-info me-2"></i>About</a></li>
-      </ul>
-
-      <!-- User Authentication and Avatar Button -->
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <a href="#" class="nav-link" id="avatarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, height: 45, width: 45, crop: :fill, class: "rounded-circle border" %>
-              <% else %>
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle", alt: "User Avatar", width: "45", height: "45" %>
-              <% end %>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="avatarDropdown">
-              <%= link_to "Profile", user_profile_path, class: "dropdown-item" %>
-              <%= link_to "Bookings", my_bookings_path, class: "dropdown-item" %>
-              <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+      <div class="navbar navbar-expand-sm shadow-sm px-3 rounded-5 border" style="height: 75px;">
+        <!-- Logo and Brand Name -->
+        <%= link_to "#", class: "navbar-brand" do %>
+            <%= image_tag 'logo', style:"width: 100px" %>
         <% end %>
-      </ul>
 
+        <!-- Toggle Button for Mobile View -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link" href="/cameras"><i class="fa-solid fa-camera me-2"></i>Cameras</a></li>
+            <li class="nav-item"><a class="nav-link" href="/cameras/new"><i class="fa-solid fa-plus me-2"></i>Post camera</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about"><i class="fa-solid fa-circle-info me-2"></i>About</a></li>
+          </ul>
+
+          <!-- User Authentication and Avatar Button -->
+          <ul class="navbar-nav">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <a href="#" class="nav-link" id="avatarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <% if current_user.photo.attached? %>
+                    <%= cl_image_tag current_user.photo.key, height: 45, width: 45, crop: :fill, class: "rounded-circle border" %>
+                  <% else %>
+                    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle", alt: "User Avatar", width: "45", height: "45" %>
+                  <% end %>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="avatarDropdown">
+                  <%= link_to "Profile", user_profile_path, class: "dropdown-item" %>
+                  <%= link_to "Bookings", my_bookings_path, class: "dropdown-item" %>
+                  <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+                </div>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 </div>
