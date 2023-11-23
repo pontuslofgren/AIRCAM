@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :bio, :photo])
   end
+
+  def handle_search(event)
+    event.preventDefault()
+    document.getElementById("searchForm").submit()
+  end
 end

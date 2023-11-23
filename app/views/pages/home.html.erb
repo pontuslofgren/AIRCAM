@@ -6,21 +6,26 @@
         <p class="lead text-body-secondary" style="color: white !important;">Looking for a unique way to capture your next vacation? With AirCam, you can browse a wide selection of cameras available for rent in your area, and rent them for as long as you need.
 </p>
         <p>
-          <%= link_to 'See all', cameras_path, class: 'btn btn-primary my-2' %>
-          <a href="#" class="btn btn-secondary my-2">How it Works</a>
+          <%= link_to 'See all', cameras_path, class: 'btn btn-primary my-5 rounded' %>
         </p>
       </div>
     </div>
   </section>
 
 <!-- CAMERA CARDS -->
+<<<<<<< HEAD
+<%= render 'shared/cards', items: @cameras %>
+=======
 
 
 <div class="album py-5 bg-body-tertiary">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <% @cameras.each do |camera| %>
+          <%= render 'shared/cards'%>
+        <% end %>
       <% @cameras.each do |camera| %>
-       <div class="col">
+        <div class="col">
         <div class="card shadow-sm border-2">
           <!-- <div style="height: 220px; background-size: cover; background-image: url('https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&w=1600')"></div> -->
           <%= cl_image_tag camera.photos.first.key, height: 300, crop: :fill, class:"card-img-top" %>
@@ -40,3 +45,4 @@
     </div>
   </div>
 </div>
+>>>>>>> 55af56c1e7ebbef6416c6bd0949e55a7251da6de
