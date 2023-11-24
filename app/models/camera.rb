@@ -1,4 +1,6 @@
 class Camera < ApplicationRecord
+  include PgSearch::Model
+
   belongs_to :owner, class_name: 'User'
   has_and_belongs_to_many :categories, through: :cameras_categories
   has_many :availabilities
@@ -24,5 +26,12 @@ class Camera < ApplicationRecord
     end
       book_dates + unavailable_dates
   end
+
+
+  pg_search_scope :search_full_text, against: {
+    location: 'A',
+    title: 'B',
+    description: 'C'
+  }
 
 end
