@@ -1,5 +1,5 @@
 <div>
-  <h4>Book this camera</h4>
+  <h4>Book camera</h4>
 
   <%= simple_form_for(@booking) do |f| %>
     <%=
@@ -9,6 +9,6 @@
         data: { controller: "datepicker", "datepicker-dates-value": @blocked_dates.to_json },
         class: 'd-none'},
         label: false %>
-    <%= f.submit 'Book camera', class:"btn btn-primary" %>
+    <%= f.submit 'Reserve', class:"btn btn-primary w-100 text-white" %>
   <% end %>
 </div>

@@ -31,7 +31,8 @@ class Camera < ApplicationRecord
   pg_search_scope :search_full_text, against: {
     location: 'A',
     title: 'B',
-    description: 'C'
+    description: 'C',
+    brand: 'D'
   }
 
 end
