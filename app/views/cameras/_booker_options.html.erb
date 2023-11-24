@@ -1,0 +1,14 @@
+<div>
+  <h4>Book this camera</h4>
+
+  <%= simple_form_for(@booking) do |f| %>
+    <%=
+    f.input :start_date,
+      as: :string,
+      input_html: {
+        data: { controller: "datepicker", "datepicker-dates-value": @blocked_dates.to_json },
+        class: 'd-none'},
+        label: false %>
+    <%= f.submit 'Book camera', class:"btn btn-primary" %>
+  <% end %>
+</div>
