@@ -1,0 +1,5 @@
+<div class="d-flex flex-wrap">
+  <% @camera.categories.each do |category| %>
+    <span class="badge bg-primary rounded-pill me-2 mb-2"><%= category.title %></span>
+  <% end %>
+</div>

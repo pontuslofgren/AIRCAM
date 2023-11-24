@@ -5,6 +5,7 @@ class Camera < ApplicationRecord
   has_and_belongs_to_many :categories, through: :cameras_categories
   has_many :availabilities
   has_many :bookings
+  accepts_nested_attributes_for :cameras_categories
 
   has_many_attached :photos
 
