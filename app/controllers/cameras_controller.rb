@@ -1,7 +1,7 @@
 class CamerasController < ApplicationController
 
   def index
-    @cameras = Camera.paginate(page: params[:page], per_page: 6)
+    @cameras = Camera.paginate(page: params[:page], per_page: 3)
     if params[:query].present?
       @cameras = Camera.search_full_text(params[:query]).paginate(page: params[:page], per_page: 6)
     end

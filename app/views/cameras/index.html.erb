@@ -1,16 +1,20 @@
 
   <div class="container">
-    <%= form_with url: cameras_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Type a keyword"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
+
+    <div class="">
+      <%= form_with url: cameras_path, method: :get, class:"input-group" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control form-control-lg",
+              placeholder: "You can search for title, description and location"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary text-white" %>
+      <% end %>
+    </div>
   </div>
 
-<%= render 'shared/cards', items: @cameras %>
-<div class="mt-5">
+<div class="container mt-3"><%= render 'shared/cards', items: @cameras %></div>
+
+<div class="d-flex justify-content-center mt-3">
   <%= will_paginate @objects, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 </div>

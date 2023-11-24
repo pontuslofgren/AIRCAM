@@ -10,18 +10,16 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-  <%# <div class="mb-3 border-bottom" style="height: 200px; background: radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%);"> %>
-  <%# </div> %>
+  <body class="d-flex flex-column h-100 m-0">
+    <div style="flex: 1 0 auto; min-height: 90vh">
 
-  <div class="ms-auto me-auto rounded-5 bg-light bg-gradientpx-5 mt-5" style="padding-top: 100px; width: 90%;">
-      <%= render "shared/navbar" %>
+      <div class="shadow-lg ms-auto me-auto rounded-5 bg-light bg-gradient mb-5 pb-5" style="padding-top: 100px; margin-top: 75px; width: 90%;">
+          <%= render "shared/navbar" %>
+          <%= render "shared/flashes" %>
+        <%= yield %>
+      </div>
+    </div>
 
-
-      <%= render "shared/flashes" %>
-
-    <%= yield %>
-</div>
 
     <%= render "shared/footer" %>
   </body>

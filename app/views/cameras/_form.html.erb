@@ -1,8 +1,6 @@
 <div class="container my-5">
   <h2 class="mb-4 text-center">Add a New Camera</h2>
 
-  <div class="card">
-    <div class="card-body">
       <%= simple_form_for(@camera, html: { class: "form" }) do |f| %>
         <div class="mb-3">
           <%= f.input :title, label: "Title", class: "form-control", placeholder: "Enter a title for your camera" %>
@@ -36,6 +34,5 @@
 
         <%= f.submit "Save", class: "btn btn-primary" %>
       <% end %>
-    </div>
-  </div>
+
 </div>
