@@ -12,10 +12,17 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
+  <%# <div class="mb-3 border-bottom" style="height: 200px; background: radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%);"> %>
+  <%# </div> %>
+
+  <div class="ms-auto me-auto rounded-5 bg-light bg-gradientpx-5 mt-5" style="padding-top: 100px; width: 90%;">
+      <%= render "shared/navbar" %>
+
+
+      <%= render "shared/flashes" %>
 
     <%= yield %>
+</div>
 
     <%= render "shared/footer" %>
   </body>
