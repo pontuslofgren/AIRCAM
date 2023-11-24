@@ -4,3 +4,8 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+.rounded-top {
+  border-top-left-radius: 30px;  /* adjust as needed */
+  border-top-right-radius: 30px; /* adjust as needed */
+}

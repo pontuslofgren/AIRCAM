@@ -1,17 +1,30 @@
-<div class="container my-3">
-  <h2>Here's your booking, <%= current_user.first_name %></h2>
+<div class="container my-5">
+  <h2 class="mb-4 text-center font-weight-bold">Your Booking Details, <%= current_user.first_name %></h2>
 
-  <ul>
-  <li>Title: <%= @booking.camera.title  %></li>
-  <li>Start date: <%= @booking.start_date  %></li>
-  <li>End date: <%= @booking.end_date  %></li>
-  <li>Brand: <%= @booking.camera.description  %></li>
-  <li>Brand: <%= @booking.camera.brand  %></li>
-  <li>Price per day: <%= @booking.camera.price  %></li>
-  <li>Price total: [TODO]</li>
-  <li>Camera owner id: <%= @booking.camera.owner_id  %></li>
-  <li>Camera owner name: <%= @booking.camera.owner.first_name  %></li>
-  </ul>
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <div class="card rounded-4 shadow border-1">
+            <div class="card rounded-4 shadow border-1">
+              <img src="https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top" alt="Camera Image">
+              <div class="card-body">
+                <h5 class="card-title"><%= @booking.camera.title %></h5>
 
-  <%= link_to 'Back to bookings', my_bookings_path, class:"btn btn-outline-primary" %>
+                <p class="card-text"><i class="far fa-calendar-alt"></i> <%= @booking.start_date %> - <%= @booking.end_date %></p>
+
+                <p class="card-text"><i class="fas fa-info-circle"></i> <%= @booking.camera.description %></p>
+
+                <p class="card-text"><i class="fas fa-camera"></i> <%= @booking.camera.brand %></p>
+
+                <p class="card-text"><i class="fas fa-dollar-sign"></i> Price per day: $<%= @booking.camera.price %></p>
+
+                <%# <p class="card-text"><i class="fas fa-dollar-sign"></i> Total Price: $<%= calculate_total_price(@booking) %></p> %>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  <div class="text-center">
+  <%= link_to 'Back to Bookings', my_bookings_path, class: "btn btn-primary mt-4" %>
+  </div>
 </div>

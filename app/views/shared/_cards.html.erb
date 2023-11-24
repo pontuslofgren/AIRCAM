@@ -1,9 +1,11 @@
-<div class="album container d-grid py-5 bg-body-tertiary", style="padding-left:0; padding-right:0; grid-template-columns:1fr 1fr 1fr; grid-gap: 8px;">
+<div class="album container d-grid py-5", style="padding-left:0; padding-right:0; grid-template-columns:1fr 1fr 1fr; grid-gap: 15px; background-color: #FAEBCD;">
       <% items.each do |item| %>
-        <div class="">
-            <div class="card shadow border-0 rounded-4">
+        <div>
+            <div class="card shadow-lg border-0 rounded-4">
               <% if item.photos.any? %>
-                <%= cl_image_tag item.photos.first.key, height: 300, crop: :fill, class:"card-img-top rounded-6" %>
+              <div style="border-top-left-radius: 10px;">
+                <%= cl_image_tag item.photos.first.key, height: 300, crop: :fill, class:"card-img-top"%>
+              </div>
               <% else %>
                 <img src="https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?auto=compress&cs=tinysrgb&w=1600" height="300" class="card-img-top rounded-3">
               <% end %>
@@ -12,7 +14,9 @@
                   <h6 class="card-subtitle mt-2 fst-italic text-decoration-underline"><%= item.brand %></h6>
                   <p class="card-text mt-2"><%= item.description.truncate_words(30) %></p>
                   <h6 class="card-subtitle mt-1 mb-2"><%= item.location %></h6>
-                  <small style="color: red; font-weight: bold;"><%= number_to_currency(item.price, unit: "€") %></small>
+                  <div>
+                    <small style="color: red; font-weight: bold;"><%= number_to_currency(item.price, unit: "€") %></small>
+                  </div>
                   </div>
                 <div class="card-body border-top">
                 <%= link_to 'View camera ✈', polymorphic_path(item), class:"btn btn-secondary" %>
