@@ -1,0 +1,25 @@
+<div id="carousel" class="carousel slide">
+  <div class="carousel-inner">
+    <% @camera.photos.each_with_index do |photo, index| %>
+      <% if index == 0 %>
+        <% css_class = "carousel-item rounded shadow-sm active" %>
+      <% else %>
+        <% css_class = "carousel-item rounded shadow-sm" %>
+      <% end %>
+
+      <% css_style = "height: 500px; background-image: url('#{cl_image_path photo.key}'); background-size: cover; background-position: center;" %>
+      <div class="<%= css_class %>" style="<%= css_style %>">
+      </div>
+    <% end %>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

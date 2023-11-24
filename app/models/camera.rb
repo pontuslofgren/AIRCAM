@@ -10,9 +10,28 @@ class Camera < ApplicationRecord
 
   validates :title, :description, :brand, :price, :location, presence: true
 
+  def blocked_dates
+    book_dates = bookings.map do |booking|
+      {
+        from: booking.start_date,
+        to: booking.end_date
+      }
+    end
+
+    unavailable_dates = availabilities.map do |block|
+      {
+        from: block.start_date,
+        to: block.end_date
+      }
+    end
+      book_dates + unavailable_dates
+  end
+
+
   pg_search_scope :search_full_text, against: {
     location: 'A',
     title: 'B',
     description: 'C'
   }
+
 end

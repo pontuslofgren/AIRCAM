@@ -1,0 +1,25 @@
+<div class="container my-3">
+  <div class="profile">
+    <h2>Here's your profile, <%= current_user.first_name %></h2>
+
+    <h3>Your cameras</h3>
+    <% if @cameras.any? %>
+      <% @cameras.each do |camera| %>
+        <p><%= link_to camera.title, camera_path(camera) %></p>
+      <% end %>
+    <% else %>
+      <p>You have no cameras posted</p>
+    <% end %>
+
+
+    <h3>Your bookings</h3>
+    <% if @bookings.any? %>
+      <% @bookings.each do |booking| %>
+        <p><%= link_to booking.camera.title, my_booking_path(booking) %></p>
+      <% end %>
+    <% else %>
+      <p>You have no bookings, yet.</p>
+    <% end %>
+
+    </div>
+</div>
