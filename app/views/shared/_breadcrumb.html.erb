@@ -1,0 +1,12 @@
+<!-- app/views/shared/_breadcrumb.html.erb -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <% breadcrumb_items.each do |item| %>
+      <% if item[:url] %>
+        <li class="breadcrumb-item"><%= link_to item[:text], item[:url] %></li>
+      <% else %>
+        <li class="breadcrumb-item active" aria-current="page"><%= item[:text] %></li>
+      <% end %>
+    <% end %>
+  </ol>
+</nav>

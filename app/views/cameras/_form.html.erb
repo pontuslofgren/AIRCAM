@@ -1,10 +1,41 @@
-<%= simple_form_for(@camera) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :brand %>
-  <%= f.input :location %>
-  <%= f.input :price %>
-  <%= f.association :categories, as: :check_boxes %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+<div class="container my-5">
+  <h2 class="mb-4 text-center">Add a New Camera</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <%= simple_form_for(@camera, html: { class: "form" }) do |f| %>
+        <div class="mb-3">
+          <%= f.input :title, label: "Title", class: "form-control", placeholder: "Enter a title for your camera" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.input :description, label: "Description", class: "form-control", placeholder: "Describe your camera" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.input :brand, label: "Brand", class: "form-control", placeholder: "Enter the brand of the camera" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.input :location, label: "Location", class: "form-control", placeholder: "Enter the location of the camera" %>
+        </div>
+
+        <div class="mb-3">
+          <div class="input-group">
+            <%= f.input :price, label: "Price", class: "form-control", placeholder: "Price per day" %>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <%= f.association :categories, label: "Categories", as: :check_boxes, class: "form-check-input" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.input :photos, label: "Photos", as: :file, input_html: { multiple: true, class: "form-control" } %>
+        </div>
+
+        <%= f.submit "Save", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
