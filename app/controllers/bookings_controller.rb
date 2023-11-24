@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
+    @bookings = Booking.where(renter_id: current_user.id)
   end
 
   def new

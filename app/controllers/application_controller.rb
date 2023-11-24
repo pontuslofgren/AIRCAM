@@ -10,8 +10,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :bio, :photo])
   end
 
-  def handle_search(event)
-    event.preventDefault()
-    document.getElementById("searchForm").submit()
-  end
 end

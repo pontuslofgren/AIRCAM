@@ -1,21 +1,33 @@
+
+
+
 <div class="container my-3">
   <h2>Hello <%= current_user.first_name %>, here are your bookings</h2>
+  <p class="text-muted">
+    <% if @bookings.one? %>
+      You have <%= @bookings.count %> booking
+    <% elsif @bookings.count > 1 %>
+        You have <%= @bookings.count %> bookings
+    <% else %>
+      You don't have any bookings, yet...
+    <% end %>
+  </p>
 
   <div class="row">
     <% @bookings.each do |booking| %>
       <div class="col-md-4 my-3">
-        <div class="card shadow border-0 rounded-4">
+        <div class="card bg-white shadow border-0 rounded-4">
           <% if booking.camera.photos.first.present? %>
             <%= cl_image_tag booking.camera.photos.first.key, crop: :fill, height: 300, class:"card-img-top rounded-6" %>
           <% else %>
             <img src="https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?auto=compress&cs=tinysrgb&w=1600" height="300" class="card-img-top rounded-3">
           <% end %>
-          <div class="card-body" style="height: 250px;">
+          <div class="card-body" style="min-height: 150px">
             <h5 class="card-title"><strong><%= booking.camera.title %></strong></h5>
             <p class="card-text mt-2"><%= booking.start_date %> to <%= booking.end_date %></p>
           </div>
           <div class="card-body border-top">
-            <%= link_to 'View details', my_booking_path(booking), class:"btn btn-secondary" %>
+            <%= link_to 'View details', my_booking_path(booking), class:"btn btn-primary w-100 text-white" %>
           </div>
         </div>
       </div>
