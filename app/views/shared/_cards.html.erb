@@ -9,8 +9,8 @@
           <% else %>
             <img src="https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?auto=compress&cs=tinysrgb&w=1600" height="300" class="card-img-top rounded-3">
           <% end %>
-            <div class="card-body" style="height: 250px;">
-              <h5 class="card-title"><strong><%= item.title %></strong></h5>
+            <div class="card-body" style="height: 300px;">
+              <h5 class="card-title" style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2;-webkit-box-orient: vertical;"><strong><%= item.title %></strong></h5>
               <h6 class="card-subtitle mt-2 fst-italic text-decoration-underline"><%= item.brand %></h6>
               <p class="card-text mt-2"><%= item.description.truncate_words(30) %></p>
               <h6 class="card-subtitle mt-1 mb-2"><%= item.location %></h6>
